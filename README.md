@@ -42,6 +42,18 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m src.download --root "D:/datasets/flowers"
 ```
 
+## 检查与统计图片
+
+下载完成后执行：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.analyze
+```
+
+脚本检查图片是否可读，统计每类数量与图片尺寸，查找完全重复文件和标签冲突。
+结果保存在 `data/analysis/`，包括 CSV 表格、JSON 摘要、类别分布图和图片尺寸图。
+本步骤只生成报告，保留原始图片。输出含义见 [数据说明](docs/data-source.md)。
+
 ## 主要依赖
 
 | 依赖 | 用途 |
