@@ -26,6 +26,22 @@ python -m venv .venv
 
 使用虚拟环境的 Python 路径执行命令，无需激活环境。
 
+## 下载数据
+
+```powershell
+.\.venv\Scripts\python.exe -m src.download
+```
+
+脚本下载并解压约 218 MiB 的花卉数据，保存到 `data/flower_photos/`。
+已成功解压的数据会跳过重复操作；已有压缩包时会直接使用。
+数据集类别、目录结构和许可见 [数据说明](docs/data-source.md)。
+
+使用其他保存目录：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.download --root "D:/datasets/flowers"
+```
+
 ## 主要依赖
 
 | 依赖 | 用途 |
