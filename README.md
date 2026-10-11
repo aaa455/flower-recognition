@@ -71,6 +71,23 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
+## 图片预处理与数据加载
+
+完成划分后，运行下面的命令检查一个批次：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.dataset
+```
+
+处理流程是：读取图片 → 调整为统一尺寸 → 转换为张量 → 按训练集统计量归一化。
+训练集增加随机水平翻转，验证集和测试集使用确定性处理。输出会显示三个集合的数量、均值、标准差和批次形状。
+
+默认每批 16 张、输入尺寸 96×96。修改参数：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.dataset --image-size 128 --batch-size 32
+```
+
 ## 主要依赖
 
 | 依赖 | 用途 |
