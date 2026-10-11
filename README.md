@@ -88,6 +88,16 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m src.dataset --image-size 128 --batch-size 32
 ```
 
+## 手写 ResNet-18
+
+```powershell
+.\.venv\Scripts\python.exe -m src.model
+```
+
+命令显示模拟输入经过各阶段后的形状和模型参数量。
+`src/model.py` 手动实现残差块及四个网络阶段，默认将 `[N,3,96,96]` 图片批次转换为 `[N,5]` 分类分数。
+当前命令只检查网络结构，不展示已训练的预测结果。网络原理见 [模型说明](docs/model.md)。
+
 ## 主要依赖
 
 | 依赖 | 用途 |
