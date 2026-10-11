@@ -54,6 +54,23 @@ python -m venv .venv
 结果保存在 `data/analysis/`，包括 CSV 表格、JSON 摘要、类别分布图和图片尺寸图。
 本步骤只生成报告，保留原始图片。输出含义见 [数据说明](docs/data-source.md)。
 
+## 清洗与划分数据
+
+```powershell
+.\.venv\Scripts\python.exe -m src.prepare
+```
+
+脚本排除损坏图片和整个标签冲突组，同标签完全重复图片只保留一份。
+随后按类别划分约 70% 训练、15% 验证、15% 测试，结果保存在 `data/splits/`。
+原始图片不会被移动或删除；`manifest.csv` 的 `split` 列记录各图片所属集合。
+固定种子为 42，相同数据和种子可复现划分。更换种子时用 `--output` 保存到其他目录，避免覆盖已有实验的记录。
+
+检查清洗和划分规则：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
 ## 主要依赖
 
 | 依赖 | 用途 |
