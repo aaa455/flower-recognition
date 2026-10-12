@@ -98,6 +98,25 @@ python -m venv .venv
 `src/model.py` 手动实现残差块及四个网络阶段，默认将 `[N,3,96,96]` 图片批次转换为 `[N,5]` 分类分数。
 当前命令只检查网络结构，不展示已训练的预测结果。网络原理见 [模型说明](docs/model.md)。
 
+## 训练与验证
+
+先用少量训练图片检查流程：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.train --epochs 1 --limit-per-class 10 --output runs/first-check
+```
+
+使用全部训练图片训练 8 轮：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.train --epochs 8 --output runs/experiment-01
+```
+
+默认输入 96×96，每批 16 张，自动使用可用的 CUDA 或 CPU。
+每轮输出训练和验证指标，并在输出目录保存曲线、记录和最佳验证模型 `best.pt`。
+每次使用新的 `--output` 目录，已有目录不会覆盖。参数详见 `python -m src.train --help`，原理见 [训练说明](docs/training.md)。
+本步骤不评估测试集；后续单独实现测试与新图片预测。
+
 ## 主要依赖
 
 | 依赖 | 用途 |
