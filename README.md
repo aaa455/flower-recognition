@@ -128,6 +128,17 @@ python -m venv .venv
 可用 `--output` 指定新的结果目录，已有目录不会覆盖。指标与图表含义见 [评估说明](docs/evaluation.md)。
 测试集用于最终评估，后续调整方案仍应依据验证集。
 
+## 单张图片预测
+
+```powershell
+.\.venv\Scripts\python.exe -m src.predict --checkpoint runs/experiment-01/best.pt --image "C:/photos/flower.jpg"
+```
+
+将模型和图片路径替换为实际路径，默认输出前三个候选类别及 softmax 分数。
+使用 `--top-k 1` 只显示第一候选；`--output runs/predictions/flower.json` 保存 JSON 结果，已有文件不会覆盖。
+预测自动使用训练时的输入尺寸与归一化参数，不需要重新训练或提供数据集。
+分数未经概率校准，模型只识别五类花卉。具体流程见 [预测说明](docs/prediction.md)。
+
 ## 主要依赖
 
 | 依赖 | 用途 |
