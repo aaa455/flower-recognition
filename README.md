@@ -149,6 +149,19 @@ python -m venv .venv
 原始指标与数据划分记录位于 [results/experiment-01](results/experiment-01/)。
 这些结果来自一次固定划分实验。仓库中的结果文件不含模型权重，新克隆后请先训练，再运行预测。
 
+## 运行演示与项目说明
+
+完成训练后，在 PowerShell 中运行：
+
+```powershell
+.\scripts\demo.ps1
+```
+
+脚本检查网络形状，再用已训练模型预测示例图片，将结果保存到新的 `runs/demo/` 子目录。
+使用 `-Checkpoint` 指定权重，`-Image` 指定自己的图片。
+录屏顺序和完整操作见 [运行演示](docs/demonstration.md)；
+模块说明、结果总结和交付材料见 [项目说明](docs/project-summary.md)。
+
 ## 主要依赖
 
 | 依赖 | 用途 |
