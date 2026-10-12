@@ -115,7 +115,18 @@ python -m venv .venv
 默认输入 96×96，每批 16 张，自动使用可用的 CUDA 或 CPU。
 每轮输出训练和验证指标，并在输出目录保存曲线、记录和最佳验证模型 `best.pt`。
 每次使用新的 `--output` 目录，已有目录不会覆盖。参数详见 `python -m src.train --help`，原理见 [训练说明](docs/training.md)。
-本步骤不评估测试集；后续单独实现测试与新图片预测。
+本步骤不评估测试集；训练与方案选择完成后再执行下方评估命令。
+
+## 测试集评估
+
+```powershell
+.\.venv\Scripts\python.exe -m src.evaluate --checkpoint runs/experiment-01/best.pt
+```
+
+将路径替换为实际训练生成的 `best.pt`。脚本使用模型目录中的数据划分副本，核对后加载测试图片。
+输出测试准确率、各类精确率/召回率/F1、混淆矩阵和错误预测记录，默认保存到模型目录下的 `test/`。
+可用 `--output` 指定新的结果目录，已有目录不会覆盖。指标与图表含义见 [评估说明](docs/evaluation.md)。
+测试集用于最终评估，后续调整方案仍应依据验证集。
 
 ## 主要依赖
 
