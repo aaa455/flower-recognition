@@ -1,0 +1,27 @@
+{
+  "seed": 42,
+  "readable_images": 3670,
+  "invalid_images": 0,
+  "conflicting_label_images_excluded": 2,
+  "same_label_duplicates_removed": 2,
+  "clean_images": 3666,
+  "classes": [
+    "daisy",
+    "dandelion",
+    "roses",
+    "sunflowers",
+    "tulips"
+  ],
+  "class_to_index": {
+    "daisy": 0,
+    "dandelion": 1,
+    "roses": 2,
+    "sunflowers": 3,
+    "tulips": 4
+  },
+  "split_counts": {
+    "train": 2572,
+    "val": 547,
+    "test": 547
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "image": "data\\flower_photos\\daisy\\100080576_f52e8ee070_n.jpg",
+  "checkpoint": "runs\\experiment-01\\best.pt",
+  "model_epoch": 8,
+  "predictions": [
+    {
+      "rank": 1,
+      "label": "daisy",
+      "name": "雏菊",
+      "score": 0.45827752351760864
+    },
+    {
+      "rank": 2,
+      "label": "dandelion",
+      "name": "蒲公英",
+      "score": 0.3520224988460541
+    },
+    {
+      "rank": 3,
+      "label": "sunflowers",
+      "name": "向日葵",
+      "score": 0.11898155510425568
+    }
+  ]
+}

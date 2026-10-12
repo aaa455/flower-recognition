@@ -1,0 +1,18 @@
+{
+  "data": "data\\flower_photos",
+  "manifest": "data\\splits\\manifest.csv",
+  "output": "runs\\experiment-01",
+  "epochs": 8,
+  "batch_size": 16,
+  "image_size": 96,
+  "learning_rate": 0.001,
+  "limit_per_class": null,
+  "seed": 42,
+  "num_threads": 4,
+  "device": "auto",
+  "resolved_device": "cpu",
+  "optimizer": "Adam",
+  "weight_decay": 0.0001,
+  "torch_version": "2.14.1+cpu",
+  "drop_singleton_train_batch": false
+}
